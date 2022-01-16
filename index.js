@@ -17,6 +17,22 @@ async function getRoutine() {
     return data
 }
 
+async function setRoutine() {
+    const docRef = firebase.db.collection('foodRoutine').doc('q22bRQfdAIiwRpEZ3lCV')
+    await docRef.update({
+        foodType: null,
+        isSet: false
+    })
+}
+
+async function setGraph(foodType) {
+    const docRef = firebase.db.collection('foodGraph').doc()
+    await docRef.set({
+        foodType: foodType,
+        dateTime: new Date()
+    })
+}
+
 app.post('/create',async (req, res) => {
     const docRef = firebase.db.collection('users').doc()
     await docRef.set(req.body)
@@ -30,7 +46,12 @@ ref.on('value', (snapshot) => {
     getRoutine().then((response) => {
         if(response.isSet) {
             if(foodBox == 0) {
-                console.log('Food Taken')
+                setGraph(response.foodType).then((response) => {
+                    console.log('Graph Data Added!')
+                })
+                setRoutine().then((response) => {
+                    console.log('Routines Set to Default!')
+                })
             }
         }
     })
