@@ -1,0 +1,22 @@
+html
+    head
+        title AGS
+        link(rel='stylesheet', href='/assets/css/style.css')
+
+    body
+
+        div.outer
+            div.inner
+                h1 Server Logs
+                a(href='/') Reload
+
+            div.logs
+                each log, index in logs
+                    div.log
+                        span #{index + 1}
+                        p #{log}
+                    br
+
+                p.cursor -
+
+            div.line

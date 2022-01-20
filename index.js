@@ -1,13 +1,14 @@
 'use strict'
 
 const express = require('express')
-const path = require('path')
+const path = require("path")
 const bodyParser = require('body-parser')
 const config = require('./config')
 const routes = require('./routes')
 const firebase = require('./firebase')
 const functions = require('./functions')
 const logger = require('./logs').Logger
+const fs = require('fs')
 
 const app = express()
 
@@ -15,9 +16,18 @@ app.use(express.json())
 app.use(bodyParser.json())
 
 app.use('/api', routes.routes)
+app.use('/assets', express.static('assets'))
+app.use('/logs', express.static('logs'))
+
+app.set("view engine", "pug")
+app.set("views", path.join(__dirname, "views"))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/index.html'));
+    let logs = null;
+    fs.readFile('./logs/info.txt', 'utf8' , (error, data) => {
+        const logs = data.split('\n')
+        res.render('index', { logs: logs })
+    })
 })
 
 const foodBox = firebase.admin.database().ref('/S1')

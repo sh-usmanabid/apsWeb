@@ -1,0 +1,136 @@
+html, body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/assets/images/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.outer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    background-color: #0e1e25;
+    height: 80%;
+    width: 80%;
+}
+
+.line {
+    border-left: 1px solid #707B7C;
+    height: 100%;
+    position: absolute;
+    left: 76px;
+    top: 0;
+}
+
+.inner {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    background-color: #004A4A;
+    border-radius: 15px 15px 0 0;
+    z-index: 100;
+}
+
+.inner h1 {
+    color: white;
+    position: absolute;
+    top: 10%;
+    left: 3%;
+}
+
+.inner a {
+    position: absolute;
+    top: 37%;
+    right: 3%;
+    height: 30px;
+    width: 100px;
+    background-color: #707B7C;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.logs {
+    margin-top: 120px;
+}
+
+.log {
+    display: flex;
+}
+
+.log span {
+    color: white;
+    margin-left: 38px;
+}
+
+.log p {
+    color: #C6C6C6;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 76px;
+}
+
+.cursor {
+    font-size: 30px;
+    font-weight: 100;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+    margin-top: -15px !important;
+    margin-left: 122px;
+}
+
+@keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-moz-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-ms-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
+
+@-o-keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: white;
+    }
+}
