@@ -1,65 +1,72 @@
+'use strict'
+
 const express = require('express')
 const bodyParser = require('body-parser')
-const firebase = require('./config')
+const config = require('./config')
+const routes = require('./routes')
+const firebase = require('./firebase')
+const functions = require('./functions')
+const logger = require('./logs').Logger
 
-const port = 3000
 const app = express()
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json())
 app.use(bodyParser.json())
 
-async function getRoutine() {
-    let data = null
-    const snapshot = await firebase.db.collection('foodRoutine').get()
-    snapshot.forEach((doc) => {
-        data = doc.data()
-    })
-    return data
-}
+app.use('/api', routes.routes)
 
-app.post('/create',async (req, res) => {
-    const docRef = firebase.db.collection('users').doc()
-    await docRef.set(req.body)
-    res.send({ msg: 'Record Added!' })
-})
+const foodBox = firebase.admin.database().ref('/S1')
 
-const ref = firebase.rdb.ref('/S1')
-
-ref.on('value', (snapshot) => {
-    const foodBox = snapshot.val()
-    getRoutine().then((response) => {
-        if(response.isSet) {
-            if(foodBox == 0) {
-                console.log('Food Taken')
+foodBox.on('value', (snapshot) => {
+    functions.getSystemVariables().then((response) => {
+        if(response.foodSet) {
+            if(parseInt(snapshot.val()) === 1) {
+                logger.info('Food Taken')
+                functions.setTimeForFood(response.foodType).then((response) => {
+                    logger.info('Graph Data For Food Added')
+                })
+                functions.setFoodToDefault().then((response) => {
+                    logger.info('Food Data Set to Default')
+                })
             }
         }
     })
 }, (errorObject) => {
-    console.log('The read failed: ' + errorObject.name)
+    logger.error('The Read Failed: ' + errorObject.name)
 })
 
-app.post('/user', async (req, res) => {
-    await firebase.auth.createUser(req.body)
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+const medBox = firebase.admin.database().ref('/S2')
 
-    res.send({ msg: 'User Added' })
+medBox.on('value', (snapshot) => {
+    functions.getSystemVariables().then((response) => {
+        if(response.medSet) {
+            if(parseInt(snapshot.val()) === 1) {
+                logger.info('Medicine Taken')
+                functions.setTimeForMedicine(response.foodType).then((response) => {
+                    logger.info('Graph Data For Medicine Added')
+                })
+                functions.setMedicineToDefault().then((response) => {
+                    logger.info('Medicine Data Set to Default')
+                })
+            }
+        }
+    })
+}, (errorObject) => {
+    logger.error('The Read Failed: ' + errorObject.name)
 })
 
-app.post('/notification', async (req, res) => {
-    await firebase.notify.sendToDevice({}, {}, {})
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+const location = firebase.admin.database().ref('/GPS_DATA')
+
+location.on('value', (snapshot) => {
+    const coordinates = snapshot.val()
+    functions.getSystemVariables().then((response) => {
+        const distance = functions.calculateDistance(response.lat, response.lon, coordinates.lat, coordinates.lon, 'K')
+        if(distance > response.radius) {
+            logger.info('Patient Moving Out Of Range!')
+        }
+    })
+}, (errorObject) => {
+    logger.error('The Read Failed: ' + errorObject.name)
 })
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(config.port, () => console.log('App is listening on url ' + config.url))
