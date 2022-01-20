@@ -21,10 +21,24 @@ module.exports.setFoodToDefault = async function setFoodToDefault() {
     })
 }
 
+module.exports.setMedicineToDefault = async function setMedicineToDefault() {
+    const docRef = firestore.collection('system').doc('variables')
+    await docRef.update({
+        medSet: false
+    })
+}
+
 module.exports.setTimeForFood = async function setTimeForFood(foodType) {
     const docRef = firestore.collection('foodData').doc()
     await docRef.set({
         foodType: foodType,
+        dateTime: new Date()
+    })
+}
+
+module.exports.setTimeForMedicine = async function setTimeForMedicine(foodType) {
+    const docRef = firestore.collection('medData').doc()
+    await docRef.set({
         dateTime: new Date()
     })
 }

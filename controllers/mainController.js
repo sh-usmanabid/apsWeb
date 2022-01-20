@@ -17,6 +17,18 @@ const setFood = async (req, res, next) => {
     }
 }
 
+const setMedicine = async (req, res, next) => {
+    try {
+        const doc = firestore.collection('system').doc('variables')
+        await doc.update({
+            medSet: true
+        })
+        res.send('Medicine Set Successfully!')
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+}
+
 const setLocation = async (req, res, next) => {
     try {
         const doc = firestore.collection('system').doc('variables')
@@ -44,6 +56,7 @@ const setRadius = async (req, res, next) => {
 
 module.exports = {
     setFood,
+    setMedicine,
     setLocation,
     setRadius
 }

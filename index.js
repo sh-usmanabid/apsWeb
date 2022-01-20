@@ -21,11 +21,32 @@ foodBox.on('value', (snapshot) => {
     functions.getSystemVariables().then((response) => {
         if(response.foodSet) {
             if(parseInt(snapshot.val()) === 1) {
+                logger.info('Food Taken')
                 functions.setTimeForFood(response.foodType).then((response) => {
                     logger.info('Graph Data For Food Added')
                 })
                 functions.setFoodToDefault().then((response) => {
-                    logger.info('Routines Set to Default')
+                    logger.info('Food Data Set to Default')
+                })
+            }
+        }
+    })
+}, (errorObject) => {
+    logger.error('The Read Failed: ' + errorObject.name)
+})
+
+const medBox = firebase.admin.database().ref('/S2')
+
+medBox.on('value', (snapshot) => {
+    functions.getSystemVariables().then((response) => {
+        if(response.medSet) {
+            if(parseInt(snapshot.val()) === 1) {
+                logger.info('Medicine Taken')
+                functions.setTimeForMedicine(response.foodType).then((response) => {
+                    logger.info('Graph Data For Medicine Added')
+                })
+                functions.setMedicineToDefault().then((response) => {
+                    logger.info('Medicine Data Set to Default')
                 })
             }
         }
