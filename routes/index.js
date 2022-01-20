@@ -5,7 +5,6 @@ const { setFood, setMedicine, setLocation, setRadius } = require('../controllers
 const router = express.Router()
 
 router.post('/create-user', createUser)
-
 router.post('/set-food', setFood)
 router.post('/set-medicine', setMedicine)
 router.post('/set-location', setLocation)

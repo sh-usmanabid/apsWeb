@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express')
+const path = require('path')
 const bodyParser = require('body-parser')
 const config = require('./config')
 const routes = require('./routes')
@@ -14,6 +15,10 @@ app.use(express.json())
 app.use(bodyParser.json())
 
 app.use('/api', routes.routes)
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/index.html'));
+})
 
 const foodBox = firebase.admin.database().ref('/S1')
 
