@@ -23,9 +23,8 @@ app.set("view engine", "pug")
 app.set("views", path.join(__dirname, "views"))
 
 app.get('/', (req, res) => {
-    let logs = null;
     fs.readFile('./logs/info.txt', 'utf8' , (error, data) => {
-        const logs = data.split('\n')
+        const logs = data.trim().split('\n')
         res.render('index', { logs: logs })
     })
 })
@@ -33,6 +32,7 @@ app.get('/', (req, res) => {
 const foodBox = firebase.admin.database().ref('/S1')
 
 foodBox.on('value', (snapshot) => {
+    logger.info('Food Box Value Changed To ' + JSON.stringify(snapshot.val()))
     functions.getSystemVariables().then((response) => {
         if(response.foodSet) {
             if(parseInt(snapshot.val()) === 1) {
@@ -53,6 +53,7 @@ foodBox.on('value', (snapshot) => {
 const medBox = firebase.admin.database().ref('/S2')
 
 medBox.on('value', (snapshot) => {
+    logger.info('Medicine Box Value Changed To ' + JSON.stringify(snapshot.val()))
     functions.getSystemVariables().then((response) => {
         if(response.medSet) {
             if(parseInt(snapshot.val()) === 1) {
@@ -73,6 +74,7 @@ medBox.on('value', (snapshot) => {
 const location = firebase.admin.database().ref('/GPS_DATA')
 
 location.on('value', (snapshot) => {
+    logger.info('Patient Location Changed To ' + JSON.stringify(snapshot.val()))
     const coordinates = snapshot.val()
     functions.getSystemVariables().then((response) => {
         const distance = functions.calculateDistance(response.lat, response.lon, coordinates.lat, coordinates.lon, 'K')

@@ -1,6 +1,7 @@
 'use strict'
 
 const firebase = require('../firebase')
+const logger = require('../logs').Logger
 
 const firestore = firebase.database.getFirestore()
 
@@ -11,8 +12,10 @@ const setFood = async (req, res, next) => {
             foodType: req.body.foodType,
             foodSet: true
         })
-        res.send('Food Set Successfully!')
+        logger.info('Food Placed In Food Box')
+        res.send({ msg: 'Food Placed In Food Box' })
     } catch (error) {
+        logger.error(error.message)
         res.status(400).send(error.message)
     }
 }
@@ -23,8 +26,10 @@ const setMedicine = async (req, res, next) => {
         await doc.update({
             medSet: true
         })
-        res.send('Medicine Set Successfully!')
+        logger.info('Medicine Placed In Medicine Box')
+        res.send({ msg: 'Medicine Placed In Medicine Box' })
     } catch (error) {
+        logger.error(error.message)
         res.status(400).send(error.message)
     }
 }
@@ -36,8 +41,10 @@ const setLocation = async (req, res, next) => {
             lat: req.body.lat,
             lon: req.body.lon,
         })
-        res.send('Location Set Successfully!')
+        logger.info('Patient Reference Location Set')
+        res.send({ msg: 'Patient Reference Location Set' })
     } catch (error) {
+        logger.error(error.message)
         res.status(400).send(error.message)
     }
 }
@@ -48,8 +55,10 @@ const setRadius = async (req, res, next) => {
         await doc.update({
             radius: req.body.radius
         })
-        res.send('Radius Set Successfully!')
+        logger.info('Patient Allowed Radius Set')
+        res.send({ msg: 'Patient Allowed Radius Set' })
     } catch (error) {
+        logger.error(error.message)
         res.status(400).send(error.message)
     }
 }

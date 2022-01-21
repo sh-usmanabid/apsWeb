@@ -14,8 +14,8 @@ html, body {
     transform: translate(-50%, -50%);
     border-radius: 15px;
     background-color: #0e1e25;
-    height: 80%;
-    width: 80%;
+    height: 70%;
+    width: 70%;
 }
 
 .line {
@@ -59,23 +59,36 @@ html, body {
 }
 
 .logs {
+    height: 100%;
+    overflow-y: scroll;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.log:first-child {
     margin-top: 120px;
 }
 
 .log {
     display: flex;
+    position: relative;
 }
 
 .log span {
-    color: white;
-    margin-left: 38px;
+    position: relative;
+    left: 33px;
+    color: #C6C6C6;
 }
 
 .log p {
     color: #C6C6C6;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 76px;
+    position: absolute;
+    left: 115px;
 }
 
 .cursor {
@@ -87,7 +100,7 @@ html, body {
     -o-animation: 1s blink step-end infinite;
     animation: 1s blink step-end infinite;
     margin-top: -15px !important;
-    margin-left: 122px;
+    margin-left: 115px;
 }
 
 @keyframes blink {
