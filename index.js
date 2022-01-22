@@ -3,6 +3,8 @@
 const express = require('express')
 const path = require("path")
 const bodyParser = require('body-parser')
+const swaggerUI = require('swagger-ui-express')
+const swaggerJsDoc = require('swagger-jsdoc')
 const config = require('./config')
 const routes = require('./routes')
 const firebase = require('./firebase')
@@ -10,7 +12,28 @@ const functions = require('./functions')
 const logger = require('./logs').Logger
 const fs = require('fs')
 
+const options = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'APS',
+            version: '1.0.0',
+            description: 'Alzheimer Patient Support'
+        },
+        servers: [
+            {
+                url: config.url
+            }
+        ]
+    },
+    apis: ['./routes/*.js']
+}
+
+const specs = swaggerJsDoc(options)
+
 const app = express()
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs))
 
 app.use(express.json())
 app.use(bodyParser.json())
