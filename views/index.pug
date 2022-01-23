@@ -8,7 +8,10 @@ html
         div.outer
             div.inner
                 h1 Server Logs
-                a(href='/api-docs' target='_blank') Test APIs
+                a(href='#')#reload
+                    i(class='gg-sync')
+                a(href='/api-docs' target='_blank')#docs
+                    i(class='gg-file-document')
 
             div.logs
                 each log, index in logs
@@ -20,3 +23,5 @@ html
                 p.cursor -
 
             div.line
+
+        script(src='/assets/js/script.js')
