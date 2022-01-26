@@ -1,33 +1,3 @@
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
-2022-01-23T23:16:20.409Z: Food Box Value Changed To "0"
-2022-01-23T23:16:20.420Z: Medicine Box Value Changed To "0"
-2022-01-23T23:16:20.426Z: Patient Location Changed To {"lat":"31.414832","lon":"74.255490"}
+2022-01-26T18:53:00.547Z: Food Box Value Changed To "1"
+2022-01-26T18:53:00.557Z: Medicine Box Value Changed To "0"
+2022-01-26T18:53:00.562Z: Patient Location Changed To {"lat":"31.43232","lon":"74.22342"}

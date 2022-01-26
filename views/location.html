@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Map</title>
+    <!-- jsFiddle will insert css and js -->
+    <style>
+        body {
+            margin: 0;
+        }
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 100vh;
+            /* The height is 400 pixels */
+            width: 100vw;
+            /* The width is the width of the web page */
+        }
+    </style>
+</head>
+<body>
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- JS Files -->
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://stuk.github.io/jszip/dist/jszip.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+
+        class HereMap {
+
+            constructor(appId, appCode, mapElement) {
+
+                this.appId = appId;
+                this.appCode = appCode;
+                this.platform = new H.service.Platform({
+                    "app_id": this.appId,
+                    "app_code": this.appCode
+                });
+
+                this.map = new H.Map(
+                    mapElement,
+                    this.platform.createDefaultLayers().normal.map,
+                    {
+                        zoom: 10,
+                        center: { lat: 31.43232, lng: 74.22342 }
+                    }
+                );
+
+                const mapEvent = new H.mapevents.MapEvents(this.map);
+                const behavior = new H.mapevents.Behavior(mapEvent);
+                this.currentPosition = new H.map.Marker({ lat: 31.43232, lng: 74.22342 });
+                this.map.addObject(this.currentPosition);
+
+            }
+
+        }
+
+        const start = async () => {
+            const map = new HereMap("UdpUhynujzu6G1qInQUR", "95Nhv9DAoolBU6GZnpYH_w", document.getElementById("map"));
+        };
+
+        start();
+
+    </script>
+</body>
+</html>
