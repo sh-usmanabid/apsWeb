@@ -56,6 +56,10 @@ app.get('/food', (req, res) => {
     res.render('food')
 })
 
+app.get('/test', (req, res) => {
+    res.sendFile('./views/test.html', { root: __dirname })
+})
+
 app.get('/medicine', (req, res) => {
     res.sendFile('./views/medicine.html', { root: __dirname })
 })
