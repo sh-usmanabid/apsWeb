@@ -45,14 +45,14 @@ app.use('/logs', express.static('logs'))
 app.set("view engine", "pug")
 app.set("views", path.join(__dirname, "views"))
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     fs.readFile('./logs/info.txt', 'utf8' , (error, data) => {
         const logs = data.trim().split('\n')
         res.render('index', { logs: logs })
     })
-})
+}) */
 
-app.get('/food', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile('./views/food.html', { root: __dirname })
 })
 
