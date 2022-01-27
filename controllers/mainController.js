@@ -13,10 +13,10 @@ const setFood = async (req, res, next) => {
             foodSet: true
         })
         logger.info('Food Placed In Food Box')
-        res.send({ msg: 'Food Placed In Food Box' })
+        res.send(200)
     } catch (error) {
         logger.error(error.message)
-        res.status(400).send(error.message)
+        res.send(400)
     }
 }
 
@@ -27,10 +27,10 @@ const setMedicine = async (req, res, next) => {
             medSet: true
         })
         logger.info('Medicine Placed In Medicine Box')
-        res.send({ msg: 'Medicine Placed In Medicine Box' })
+        res.send(200)
     } catch (error) {
         logger.error(error.message)
-        res.status(400).send(error.message)
+        res.send(400)
     }
 }
 
@@ -42,10 +42,10 @@ const setLocation = async (req, res, next) => {
             lon: req.body.lon,
         })
         logger.info('Patient Reference Location Set')
-        res.send({ msg: 'Patient Reference Location Set' })
+        res.send(200)
     } catch (error) {
         logger.error(error.message)
-        res.status(400).send(error.message)
+        res.send(400)
     }
 }
 
@@ -56,10 +56,10 @@ const setRadius = async (req, res, next) => {
             radius: req.body.radius
         })
         logger.info('Patient Allowed Radius Set')
-        res.send({ msg: 'Patient Allowed Radius Set' })
+        res.send(200)
     } catch (error) {
         logger.error(error.message)
-        res.status(400).send(error.message)
+        res.send(400)
     }
 }
 

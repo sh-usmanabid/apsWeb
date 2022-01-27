@@ -1,6 +1,8 @@
 const express = require('express')
+
 const { current, register, login, update } = require('../controllers/userController')
 const { setFood, setMedicine, setLocation, setRadius } = require('../controllers/mainController')
+const { getFoodData, getMedicineData } = require('../controllers/chartController')
 
 const router = express.Router()
 
@@ -13,6 +15,9 @@ router.post('/set-food', setFood)
 router.post('/set-medicine', setMedicine)
 router.post('/set-location', setLocation)
 router.post('/set-radius', setRadius)
+
+router.get('/get-food', getFoodData)
+router.get('/get-med', getMedicineData)
 
 module.exports = {
     routes: router

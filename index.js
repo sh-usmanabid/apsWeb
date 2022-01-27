@@ -52,22 +52,6 @@ app.get('/', (req, res) => {
     })
 })
 
-app.get('/food', (req, res) => {
-    res.render('food')
-})
-
-app.get('/test', (req, res) => {
-    res.sendFile('./views/test.html', { root: __dirname })
-})
-
-app.get('/medicine', (req, res) => {
-    res.sendFile('./views/medicine.html', { root: __dirname })
-})
-
-app.get('/location', (req, res) => {
-    res.sendFile('./views/location.html', { root: __dirname })
-})
-
 const foodBox = firebase.admin.database().ref('/S1')
 
 foodBox.on('value', (snapshot) => {
