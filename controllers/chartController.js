@@ -20,7 +20,16 @@ const getMedicineData = async (req, res) => {
 
 }
 
+const getLocation = async (req, res) => {
+
+    await firestore.collection('system').get().then((snapshot) => {
+        res.send(snapshot.docs.map(doc => doc.data()))
+    })
+
+}
+
 module.exports = {
     getFoodData,
-    getMedicineData
+    getMedicineData,
+    getLocation
 }

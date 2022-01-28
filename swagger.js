@@ -215,3 +215,18 @@
  *                      schema:
  *                          type: object
  */
+
+/**
+ * @swagger
+ * /api/get-location:
+ *  get:
+ *      summary: Get location data.
+ *      tags: [Graph]
+ *      responses:
+ *          '200':
+ *              description: User Location Data
+ *              contents:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ */
