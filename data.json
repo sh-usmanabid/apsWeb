@@ -1,0 +1,86 @@
+[
+  {
+    "dateTime": "January 22, 2022 9:00:00 AM",
+    "foodType": "Breakfast"
+  },
+  {
+    "dateTime": "January 22, 2022 2:10:00 PM",
+    "foodType": "Lunch"
+  },
+  {
+    "dateTime": "January 22, 2022 07:23:00 PM",
+    "foodType": "Dinner"
+  },
+  {
+    "dateTime": "January 23, 2022 10:00:00 AM",
+    "foodType": "Breakfast"
+  },
+  {
+    "dateTime": "January 23, 2022 3:12:00 PM",
+    "foodType": "Lunch"
+  },
+  {
+    "dateTime": "January 23, 2022 08:14:00 PM",
+    "foodType": "Dinner"
+  },
+  {
+    "dateTime": "January 24, 2022 11:00:00 AM",
+    "foodType": "Breakfast"
+  },
+  {
+    "dateTime": "January 24, 2022 4:12:00 PM",
+    "foodType": "Lunch"
+  },
+  {
+    "dateTime": "January 24, 2022 10:14:00 PM",
+    "foodType": "Dinner"
+  },
+  {
+    "dateTime": "January 25, 2022 10:00:00 AM",
+    "foodType": "Breakfast"
+  },
+  {
+    "dateTime": "January 25, 2022 3:11:00 PM",
+    "foodType": "Lunch"
+  },
+  {
+    "dateTime": "January 25, 2022 09:14:00 PM",
+    "foodType": "Dinner"
+  },
+  {
+    "dateTime": "January 26, 2022 08:00:00 AM",
+    "foodType": "Breakfast"
+  },
+  {
+    "dateTime": "January 26, 2022 2:11:00 PM",
+    "foodType": "Lunch"
+  },
+  {
+    "dateTime": "January 26, 2022 08:12:00 PM",
+    "foodType": "Dinner"
+  },
+  {
+    "dateTime": "January 27, 2022 08:06:00 AM",
+    "foodType": "Breakfast"
+  },
+  {
+    "dateTime": "January 27, 2022 3:11:00 PM",
+    "foodType": "Lunch"
+  },
+  {
+    "dateTime": "January 27, 2022 09:12:00 PM",
+    "foodType": "Dinner"
+  },
+  {
+    "dateTime": "January 28, 2022 07:25:00 AM",
+    "foodType": "Breakfast"
+  },
+  {
+    "dateTime": "January 28, 2022 1:11:00 PM",
+    "foodType": "Lunch"
+  },
+  {
+    "dateTime": "January 28, 2022 07:12:00 PM",
+    "foodType": "Dinner"
+  }
+]
